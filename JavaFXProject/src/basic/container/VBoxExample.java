@@ -17,7 +17,7 @@ public class VBoxExample extends Application {
 
 
 	@Override
-	public void start(Stage arg0) throws Exception {
+	public void start(Stage primaryStage) throws Exception { //stage에 대한 변수가 primaryStage 
 		VBox root = new VBox();
 		root.setPadding(new Insets(10, 10, 10, 10));
 		// 컨트롤들
