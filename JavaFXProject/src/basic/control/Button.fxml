@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
+
+
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.image.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.*?>
+
 <BorderPane xmlns:fx="http://javafx.com/fxml/1"
-   prefHeight="150.0" prefWidth="420.0">
+   prefHeight="150.0" prefWidth="420.0"
+   fx:controller="basic.control.ButtonController">
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
@@ -18,15 +20,15 @@
             <VBox prefHeight="100.0" prefWidth="100.0" spacing="20.0"
                alignment="CENTER_LEFT">
                <children>
-                  <CheckBox fx:id="chk1" text="안경" />
-                  <CheckBox fx:id="chk2" text="모자" />
+                  <CheckBox fx:id="chk1" text="안경" onAction="#handleChkAction" />
+                  <CheckBox fx:id="chk2" text="모자" onAction="#handleChkAction" />
                </children>
             </VBox>
 
             <ImageView fx:id="checkImageView" fitWidth="100.0"
                preserveRatio="true">
                <image>
-                  <Image url="@/basic_images/geek.gif" />
+                  <Image url="@/basic/images/geek.gif" />
                </image>
             </ImageView>
 
@@ -49,7 +51,7 @@
             <ImageView fx:id="radioImageView" fitWidth="100.0"
                preserveRatio="true">
                <image>
-                  <Image url="@/basic_images/BarChart.png" />
+                  <Image url="@/basic/images/BarChart.png" />
                </image>
             </ImageView>
          </children>
@@ -59,7 +61,7 @@
       <Button fx:id="btnExit" BorderPane.alignment="CENTER">
          <graphic>
             <ImageView>
-               <Image url="@/basic_images/exit.png" />
+               <Image url="@/basic/images/exit.png" />
             </ImageView>
          </graphic>
          <BorderPane.margin>
@@ -68,4 +70,6 @@
       </Button>
    </bottom>
 
+
+   <!-- TODO Add Nodes -->
 </BorderPane>
