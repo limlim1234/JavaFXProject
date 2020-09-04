@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.TableView;
 import javafx.scene.chart.PieChart.Data;
 
 
@@ -21,7 +22,37 @@ import javafx.scene.chart.PieChart.Data;
 public class PeopleController implements Initializable {
 	@FXML
 	BarChart barChart;
-
+	@FXML
+	TableView  tableView;
+	
+	ObservableList<People> list;
+	
+	Connection conn = ConnectionDB.getDB(); // DB연결
+	 public ObservableList<People> getPeople() {
+	      String sql = "select * from student";
+	      ObservableList<People> list = FXCollections.observableArrayList();
+	      
+	      try { 
+	          PreparedStatement pstmt = conn.prepareStatement(sql);
+	          ResultSet rs = pstmt.executeQuery();
+	          // 정보를 가져왔으니 틀에 담아야한다
+	          while(rs.next()) {
+	        	  People student = new People(rs.getString("id"),
+	                   rs.getString("name"),
+	                   rs.getInt("koScore"),
+	                   rs.getInt("mathScore"),
+	                   rs.getInt("engScore")
+	             );
+	        	  list.add(student);
+	          }
+	          
+	      } catch (SQLException e){
+	         e.printStackTrace();
+	      }
+	      return list;
+	         
+	   }
+	        	  
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		ObservableList<Data> list = FXCollections.observableArrayList();
@@ -42,7 +73,6 @@ public class PeopleController implements Initializable {
 		barChart.getData().add(s3);
 		
 	}
-
 
 
 	public ObservableList<People> getPeople() {
