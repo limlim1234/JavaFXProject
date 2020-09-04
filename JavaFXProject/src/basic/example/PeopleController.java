@@ -42,8 +42,9 @@ public class PeopleController implements Initializable {
 		barChart.getData().add(s3);
 		
 	}
-	
-	
+
+
+
 	public ObservableList<People> getPeople() {
 		Connection conn = ConnectionDB.getDB();
 		String sql = "select * from student";
@@ -55,7 +56,7 @@ public class PeopleController implements Initializable {
 			while (rs.next()) {
 				People people = new People(rs.getString("id"), 
 						rs.getString("name"),rs.getInt("korean"), 
-						rs.getInt("math"), rs.getInt("english");
+						rs.getInt("math"), rs.getInt("english"));
 				list.add(people);
 			}
 		} catch (SQLException e) {
