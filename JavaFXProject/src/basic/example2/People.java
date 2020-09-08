@@ -1,4 +1,4 @@
-package basic.example;
+package basic.example2;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -18,6 +18,7 @@ public class People {
 			this.english = new SimpleIntegerProperty(english);
 			
 		}
+		
 		
 		public String getId() {
 			return this.id.get();
