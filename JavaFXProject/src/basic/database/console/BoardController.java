@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import basic.common.ConnectionDB;
-
+import basic.example2.People;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -22,70 +22,51 @@ import javafx.stage.Stage;
 public class BoardController implements Initializable {
 	@FXML
 	TableView<Board> tableView;
-
+	
 	ObservableList<Board> list;
-	Connection conn = ConnectionDB.getDB();
-
-	Stage primaryStage;
-
-	public void setPrimaryStage(Stage primaryStage) {
-		this.primaryStage = primaryStage;
-	}
-
+	String sql = "";
+	 Connection conn = ConnectionDB.getDB();
+	  public ObservableList<Board> getBoard() {
+		  sql = "select * from board";
+		  ObservableList<Board> list = FXCollections.observableArrayList();
+		  try {
+			  PreparedStatement pstmt = conn.prepareStatement(sql);
+			   ResultSet rs = pstmt.executeQuery();
+			   while(rs.next()) {
+				   Board board = new Board(rs.getString("productname"),
+			                  rs.getString("productsize"),
+			                  rs.getInt("price"));
+			            list.add(board);
+			   }
+		  } catch (SQLException e) {
+			   e.printStackTrace();
+		  }
+		  return list;
+	  }
+	  public void insertBoard(Board board) {
+		  sql = "insert into board values(?, ?, ?)" ;
+		  try {
+			  PreparedStatement pstmt = conn.prepareStatement(sql);
+			  pstmt.setString(1, board.getProductName());
+		         pstmt.setString(2, board.getProductSize());
+		         pstmt.setInt(3, board.getPrice());
+		       
+		         pstmt.executeUpdate();
+		  } catch (SQLException e) {
+			  e.printStackTrace();
+		  }
+	  }
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		TableColumn<Board, ?> tc = tableView.getColumns().get(0);
-		tc.setCellValueFactory(new PropertyValueFactory<>("productname"));
-
-		tc = tableView.getColumns().get(1);
-		tc.setCellValueFactory(new PropertyValueFactory<>("size"));
-
-		tc = tableView.getColumns().get(2);
-		tc.setCellValueFactory(new PropertyValueFactory<>("price"));
-
-		listAdd();
+		
+		
 	}
 
-	public ObservableList<Board> getBoardList() {
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "hr", passwd = "hr";
-		Connection conn = null;
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection(url, user, passwd);
-		} catch  (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
-		String sql = "select * from board";
-		ObservableList<Board> list = FXCollections.observableArrayList();
-		try { 
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			ResultSet rs =pstmt.executeQuery();
-			while(rs.next()) {
-				Board board = new Board(rs.getString("productname"),
-						rs.getString("productsize"),
-						rs.getInt("price"));
-						
-				list.add(board);
-			}
+	public void setPrimaryStage(Stage primaryStage) {
 	
-		}
+		
 	}
-	private ObservableList<Board> listAdd()  {
-			String sql = "select * from board";
-			ObservableList<Board> list = FXCollections.observableArrayList();
-			try {
-				PreparedStatement pstmt =conn.prepareStatement(sql);
-				 ResultSet rs = pstmt.executeQuery();
-				 while(rs.next()) {
-					 Board board = new Board(rs.getString("PRODUCTNAME"), rs.getString("SIZE"),
-		                     rs.getInt("PRICE"));
-					 list.add(board);
-				 } 
-			} catch (SQLException e) {
-					 e.printStackTrace();
-				 } 
-				 return list;
-			
-		} 
-	}
+
+	
+
+}
