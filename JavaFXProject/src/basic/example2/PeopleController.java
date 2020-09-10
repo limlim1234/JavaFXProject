@@ -259,7 +259,7 @@ public class PeopleController implements Initializable {
 				listAdd();
 		});
 		
-		Button btnDelte = new Button("삭제");
+		Button btnDelte = new Button("삭제"); 
 		btnDelte.setLayoutX(120);
 		btnDelte.setLayoutY(184);
 		btnDelte.setOnAction(event -> {
@@ -267,7 +267,7 @@ public class PeopleController implements Initializable {
 				String sql = "DELETE from STUDENT WHERE ID = ?";
 				try {
 					PreparedStatement pstmt = conn.prepareStatement(sql);
-					pstmt.setNString(1, tID.getText());
+					pstmt.setString(1, tID.getText());
 					pstmt.executeUpdate();
 				} catch (SQLException e) {
 					e.printStackTrace();

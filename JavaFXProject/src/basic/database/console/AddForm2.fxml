@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+
+<BorderPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<padding>
+		<Insets topRightBottomLeft="20" />
+	</padding>
+	<center>
+		<GridPane hgap="10" vgap="10" BorderPane.alignment="CENTER">
+   <children>
+   			<Label prefWidth="50" text="상품명" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+   			<Label prefWidth="50" text="사이즈" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+   			<Label prefWidth="50" text="가격" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+   			<TextField id="txtProductName" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+   			<TextField id="txtProductSize" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   			<TextField id="txtPrice" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+				<Button id="btnFormPlus" text="Save" GridPane.rowIndex="4" />
+				<Button id="btnFormCancel" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+   </children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+		</GridPane>
+	</center>
+	<bottom>
+		<HBox prefHeight="24.0" prefWidth="123.0" spacing="20" BorderPane.alignment="CENTER">
+			<BorderPane.margin>
+				<Insets topRightBottomLeft="10" />
+			</BorderPane.margin>
+		</HBox>
+	</bottom>
+</BorderPane>
