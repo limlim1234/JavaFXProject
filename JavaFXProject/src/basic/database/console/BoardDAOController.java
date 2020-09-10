@@ -8,26 +8,47 @@ import basic.common.ConnectionDB;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class BoardDAOController implements Initializable {
 	@FXML
-	TableView<BoardDAOController> tableView;
+	TableView<BoardDAO> tableView;
 	
 	Connection conn = ConnectionDB.getDB();
-	ObservableList<BoardDAOController> list;
+	ObservableList<BoardDAO> list;
 	
-	
-	
-	
-	
-	
-	
-	
+	Stage primaryStage;
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		
+		TableColumn<BoardDAO, ?> tc = tableView.getColumns().get(0);
+		tc.setCellValueFactory(new PropertyValueFactory<>("id"));
+		
+		tc = tableView.getColumns().get(1);
+		tc.setCellValueFactory(new PropertyValueFactory<>("name"));
+		
+		tc = tableView.getColumns().get(2);
+		tc.setCellValueFactory(new PropertyValueFactory<>("productname"));
+		
+		tc = tableView.getColumns().get(3);
+		tc.setCellValueFactory(new PropertyValueFactory<>("address"));
+		
+		tc = tableView.getColumns().get(4);
+		tc.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+		
+		listAdd();
+	}
+
+	public void listAdd() {
+		
 		
 	}
 }
