@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1">
+	<center>
+		<TableView id="tableView" prefHeight="200" prefWidth="420">
+			<columns>
+				<TableColumn prefWidth="81.0" resizable="false" text="아이디" />
+				<TableColumn prefWidth="81.0" resizable="false" text="성명" />
+				<TableColumn prefWidth="91.0" resizable="false" text="상품명" />
+				<TableColumn prefWidth="115.0" resizable="false" text="배송지" />
+				<TableColumn minWidth="0.0" prefWidth="132.0" text="결제금액" />
+			</columns>
+		</TableView>
+	</center>
+	<bottom>
+		<HBox alignment="CENTER" prefHeight="30.0" prefWidth="320.0">
+			<children>
+				<Button id="btnFormAqq" text="결제" />
+				<Button id="btnCancel" text="취소" />
+			</children>
+		</HBox>
+	</bottom>
+</BorderPane>

@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="basic.database.console.BoardController">
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="basic.database.console.BoardController">
 	<center>
 		<TableView fx:id="tableView" prefHeight="200" prefWidth="420">
 			<columns>
@@ -22,8 +23,8 @@
 	<bottom>
 		<HBox alignment="CENTER" prefHeight="30.0" prefWidth="320.0">
 			<children>
-            <Button fx:id="btnPlus" text="상품추가" />
-            <Button fx:id="btnDelete" text="삭제" />
+				<Button fx:id="btnPlus" text="상품추가" />
+				<Button fx:id="btnDelete" text="삭제" />
 				<Button fx:id="btnOrder" text="주문" />
 				<Button fx:id="btnCancel" text="취소" />
 			</children>

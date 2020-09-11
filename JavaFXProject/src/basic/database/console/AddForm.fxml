@@ -21,8 +21,8 @@
    			<Label prefWidth="50" text="배송지" GridPane.columnIndex="0" GridPane.rowIndex="2" />
    			<Label prefWidth="50" text="결제금액" GridPane.columnIndex="0" GridPane.rowIndex="3" />
    			
-   			<Button id="btnFormsave" text="Save" GridPane.rowIndex="5" />
-				<Button id="btnFormaaa" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+   			<Button id="btnFormSave" text="Save" GridPane.rowIndex="5" />
+				<Button id="btnFormAaa" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="5" />
    			<TextField id="txtName" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="0" />
    			<TextField id="txtProductName" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    			<TextField id="txtAddress" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2" />
